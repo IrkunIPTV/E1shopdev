@@ -1,378 +1,421 @@
+
+
 /* =================================================
-    – NEON BLACK PURPLE PREMIUM THEME
+   PURPLE • BLACK • WHITE — NEON GLASS THEME
    ================================================= */
 
-/* ================= ROOT ================= */
-:root {
-  --purple: #7a2cff;                 /* premium purple */
-  --purple-light: #b18bff;           /* highlight purple */
-  --purple-glow: rgba(122,44,255,0.60);
+/* ---------- VARIABLES ---------- */
+:root{
+  --glass-bg: rgba(255,255,255,0.10);
+  --glass-bg-soft: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.28);
+
+  --neon-purple: #b84bff;
+  --neon-pink: #ff4dff;
+  --neon-blue: #6a7cff;
+
+  --glow-purple: rgba(184,75,255,0.45);
+  --glow-pink: rgba(255,77,255,0.35);
+  --glow-blue: rgba(106,124,255,0.35);
+
+  --text:#f4f5ff;
 }
 
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+/* ---------- RESET ---------- */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1000px 500px at 15% 10%, rgba(184,75,255,0.25), transparent 60%),
+    radial-gradient(900px 500px at 85% 10%, rgba(255,77,255,0.22), transparent 55%),
+    radial-gradient(800px 500px at 40% 95%, rgba(106,124,255,0.18), transparent 60%),
+    #05050a;
 }
 
-a {
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
+/* ---------- BANNER ---------- */
+.banner{ width:100%; background:#000; }
+.banner img{ width:100%; display:block; }
+
+/* ---------- GRID ---------- */
+.container{
+  width:min(1100px,92%);
+  margin:18px auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
 }
 
-body {
-  background: radial-gradient(circle at top, #0b0714, #000);
-  color: #fff;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+/* ---------- APP CARDS (GLASS) ---------- */
+.app-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  padding:18px;
+  text-align:center;
 
-/* ================= BANNER ================= */
-.banner img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-}
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
 
-/* ================= CONTAINER ================= */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 60px 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-}
+  border:1px solid var(--glass-border);
 
-/* ================= APP CARD ================= */
-.app-card {
-  background: linear-gradient(180deg, rgba(22,22,22,0.96), rgba(0,0,0,0.98));
-  border-radius: 22px;
-  padding: 30px;
-  text-align: center;
-  border: 1px solid rgba(122,44,255,0.28);
-  box-shadow: 0 0 26px rgba(122,44,255,0.18);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.app-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 42px rgba(122,44,255,0.55);
-}
-
-.app-card img {
-  width: 90px;
-  margin-bottom: 16px;
-  filter: drop-shadow(0 0 10px var(--purple-glow));
-}
-
-.app-card h2 {
-  color: var(--purple);
-  text-shadow: 0 0 10px var(--purple-glow);
-  margin-bottom: 8px;
-}
-
-.app-card p {
-  font-size: 14px;
-  opacity: 0.85;
-  margin-bottom: 18px;
-}
-
-/* ================= BUTTONS ================= */
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(135deg, var(--purple), var(--purple-light));
-  color: #000;
-  font-weight: 700;
-  transition: 0.3s;
   box-shadow:
-    0 0 16px var(--purple-glow),
-    inset 0 0 10px rgba(255,255,255,0.25);
+    0 0 0 1px rgba(255,255,255,0.06) inset,
+    0 20px 80px rgba(0,0,0,0.65),
+    0 0 30px var(--glow-purple),
+    0 0 45px var(--glow-pink);
 }
 
-.btn:hover {
-  transform: scale(1.06);
+.app-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(800px 240px at 10% 10%, var(--glow-purple), transparent 60%),
+    radial-gradient(800px 240px at 90% 0%, var(--glow-pink), transparent 55%),
+    radial-gradient(700px 260px at 40% 110%, var(--glow-blue), transparent 60%);
+  opacity:.55;
+  pointer-events:none;
 }
 
-/* VIEW PACKAGE (RED) */
-button.btn {
-  background: linear-gradient(135deg, #700000, #140000);
-  color: #fff;
-  border: 1px solid rgba(255,80,80,0.45);
+.app-card > *{ position:relative; }
+
+.app-card img{
+  width:78px;
+  height:78px;
+  border-radius:18px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,0.22);
+  box-shadow:0 14px 40px rgba(0,0,0,0.7);
+}
+
+.app-card h2{
+  margin:12px 0 6px;
+  font-size:20px;
+}
+
+.app-card p{
+  margin:0 0 14px;
+  opacity:.85;
+  font-size:13px;
+}
+
+/* ---------- BUTTONS (NEON GLASS) ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  margin:6px 0;
+  padding:12px 14px;
+  border-radius:14px;
+  font-weight:900;
+  cursor:pointer;
+  text-decoration:none;
+  user-select:none;
+
+  background: linear-gradient(
+    135deg,
+    rgba(184,75,255,0.60),
+    rgba(255,77,255,0.60)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.40);
+
   box-shadow:
-    0 0 22px rgba(255,0,0,0.6),
-    inset 0 0 10px rgba(255,80,80,0.25);
+    0 0 0 1px rgba(255,255,255,0.10) inset,
+    0 12px 35px rgba(0,0,0,0.6),
+    0 0 25px var(--glow-purple),
+    0 0 45px var(--glow-pink);
+
+  transition:.2s ease;
 }
 
-/* OUTLINE */
-.btn.outline {
-  background: transparent;
-  border: 1px solid var(--purple);
-  color: var(--purple);
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.18) inset,
+    0 18px 55px rgba(0,0,0,0.75),
+    0 0 40px var(--glow-purple),
+    0 0 70px var(--glow-pink);
 }
 
-.btn.small {
-  padding: 7px 16px;
-  font-size: 13px;
+/* outline glass */
+.btn.outline{
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.06)
+  );
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.40);
+  box-shadow:
+    0 0 18px rgba(255,255,255,0.15),
+    0 0 35px var(--glow-blue);
 }
 
-/* ================= PAYMENT ================= */
-.payment {
-  padding: 80px 20px;
-  text-align: center;
-  background: linear-gradient(180deg, #070515, #000);
+.btn.small{
+  width:auto;
+  padding:10px 12px;
+  border-radius:12px;
+  font-size:12px;
 }
 
-.payment h2 {
-  font-size: 22px;
-  color: var(--purple);
-  margin-bottom: 30px;
-  text-shadow: 0 0 12px var(--purple-glow);
+/* ---------- PAYMENT ---------- */
+.payment{
+  width:min(900px,92%);
+  margin:34px auto 0;
+  text-align:center;
+}
+.payment h2{ margin:0 0 14px; }
+
+.payment-box{ display:grid; gap:12px; }
+
+.payment-btn{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:18px;
+  border-radius:22px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.20),
+    rgba(255,255,255,0.06)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border:1px solid rgba(255,255,255,0.40);
+  color:#fff;
+  font-weight:900;
+  text-decoration:none;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.12) inset,
+    0 20px 80px rgba(0,0,0,0.7),
+    0 0 35px var(--glow-purple),
+    0 0 60px var(--glow-pink);
+
+  transition:.2s ease;
+}
+.payment-btn span{
+  font-size:12px;
+  opacity:.85;
+  font-weight:700;
+}
+.payment-btn:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.20) inset,
+    0 26px 110px rgba(0,0,0,0.85),
+    0 0 50px var(--glow-purple),
+    0 0 85px var(--glow-pink);
+}
+.payment-btn.qr{ cursor:pointer; }
+
+/* ---------- REVIEWS ---------- */
+.reviews{
+  width:min(1100px,92%);
+  margin:40px auto 0;
+  text-align:center;
+}
+.review-sub{ opacity:.75; margin-top:8px; }
+
+.review-box{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
 }
 
-.payment-box {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: wrap;
+.review-card{
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.16),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border:1px solid rgba(255,255,255,0.28);
+  border-radius:20px;
+  padding:14px;
+  text-align:left;
+  min-height:120px;
+  box-shadow:0 18px 70px rgba(0,0,0,0.45);
+}
+.review-text{ margin:0; font-size:13px; line-height:1.35; }
+.review-name{ display:block; margin-top:10px; opacity:.75; font-size:12px; }
+
+/* ---------- RESELLER + HOURS ---------- */
+.reseller,.hours{
+  width:min(900px,92%);
+  margin:38px auto 0;
+  text-align:center;
+  padding:20px 16px;
+  border-radius:22px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border:1px solid rgba(255,255,255,0.30);
+  box-shadow:
+    0 18px 70px rgba(0,0,0,0.55),
+    0 0 30px var(--glow-purple);
+}
+.reseller p,.hours p{ opacity:.8; margin:8px 0 14px; }
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  padding:26px 12px;
+  opacity:.7;
+  font-size:12px;
 }
 
-.payment-btn {
-  width: 300px;
-  padding: 24px;
-  border-radius: 22px;
-  font-size: 18px;
-  font-weight: 800;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: 0.35s;
+/* ---------- FLOATING BUTTONS ---------- */
+.floating-whatsapp,.floating-telegram{
+  position:fixed;
+  right:18px;
+  width:58px;
+  height:58px;
+  border-radius:20px;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  text-decoration:none;
+  color:#fff;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0.06)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border:1px solid rgba(255,255,255,0.40);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.12) inset,
+    0 0 30px var(--glow-purple),
+    0 0 55px var(--glow-pink);
+
+  transition:.2s ease;
+  z-index:60;
+}
+.floating-whatsapp{ bottom:92px; }
+.floating-telegram{ bottom:26px; }
+
+.floating-whatsapp:hover,
+.floating-telegram:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.20) inset,
+    0 0 45px var(--glow-purple),
+    0 0 85px var(--glow-pink);
 }
 
-.payment-btn span {
-  font-size: 14px;
-  margin-top: 6px;
-  opacity: 0.9;
+/* ---------- MODALS ---------- */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.80);
+  backdrop-filter: blur(12px);
+  z-index:80;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
 }
 
-.payment-btn.toyyibpay {
-  background: linear-gradient(135deg, #700000, #140000);
-  color: #fff;
-  box-shadow: 0 0 32px rgba(255,0,0,0.75);
+.modal-box{
+  width:min(560px,94%);
+  border-radius:26px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0.08)
+  );
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border:1px solid rgba(255,255,255,0.40);
+
+  box-shadow:
+    0 40px 160px rgba(0,0,0,0.85),
+    0 0 0 1px rgba(255,255,255,0.15) inset,
+    0 0 45px var(--glow-purple),
+    0 0 80px var(--glow-pink);
+
+  padding:18px;
 }
 
-.payment-btn.whatsapp {
-  background: linear-gradient(135deg, #25D366, #1ebe5d);
-  color: #fff;
-  box-shadow: 0 0 32px rgba(37,211,102,0.85);
+.modal-box h2{ margin:0 0 12px; }
+
+#priceList{
+  list-style:none;
+  padding:0;
+  margin:0 0 12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
-.payment-btn.qr {
-  background: linear-gradient(135deg, var(--purple), var(--purple-light));
-  color: #000;
-  box-shadow: 0 0 32px var(--purple-glow);
+#priceList li{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:16px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border:1px solid rgba(255,255,255,0.32);
+}
+#priceList strong{ font-size:16px; }
+
+/* QR image */
+.qr-img{
+  width:100%;
+  max-width:320px;
+  display:block;
+  margin:10px auto 14px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.30);
 }
 
-.payment-btn:hover {
-  transform: translateY(-6px) scale(1.05);
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:980px){
+  .container{ grid-template-columns:repeat(2,1fr); }
+  .review-box{ grid-template-columns:repeat(2,1fr); }
 }
-
-/* ================= CUSTOMER REVIEWS ================= */
-.reviews {
-  padding: 80px 20px;
-  text-align: center;
-  background: linear-gradient(180deg, #060414, #000);
-}
-
-.reviews h2 {
-  color: var(--purple);
-  font-size: 22px;
-  margin-bottom: 8px;
-  text-shadow: 0 0 12px var(--purple-glow);
-}
-
-.review-sub {
-  font-size: 15px;
-  opacity: 0.85;
-  margin-bottom: 40px;
-}
-
-.review-box {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 26px;
-}
-
-.review-card {
-  background: linear-gradient(180deg, rgba(22,22,22,0.96), rgba(0,0,0,0.98));
-  border-radius: 20px;
-  padding: 24px;
-  border: 1px solid rgba(122,44,255,0.28);
-  box-shadow: 0 0 22px rgba(122,44,255,0.22);
-  transition: 0.35s ease;
-}
-
-.review-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 38px rgba(122,44,255,0.50);
-}
-
-.review-text {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.9;
-  margin-bottom: 12px;
-}
-
-.review-name {
-  color: var(--purple);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-/* ================= RESELLER & HOURS ================= */
-.reseller,
-.hours {
-  text-align: center;
-  padding: 65px 20px;
-  background: linear-gradient(180deg, #050312, #000);
-}
-
-.reseller h2,
-.hours h2 {
-  color: var(--purple);
-  font-size: 20px;
-  margin-bottom: 10px;
-  text-shadow: 0 0 10px var(--purple-glow);
-}
-
-.reseller p,
-.hours p {
-  font-size: 15px;
-  opacity: 0.85;
-}
-
-/* ================= FOOTER ================= */
-footer {
-  background: #000;
-  padding: 14px;
-  text-align: center;
-  font-size: 12px;
-  opacity: 0.75;
-}
-
-/* ================= MODAL ================= */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.92);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  padding: 10px;
-}
-
-.modal-box {
-  background: linear-gradient(180deg, #141414, #000);
-  padding: 26px;
-  border-radius: 20px;
-  width: 100%;
-  max-width: 420px;
-  max-height: 85vh;
-  overflow-y: auto;
-  border: 1px solid rgba(122,44,255,0.28);
-}
-
-.modal-box h2 {
-  color: var(--purple);
-  text-align: center;
-  margin-bottom: 18px;
-  text-shadow: 0 0 10px var(--purple-glow);
-}
-
-#priceList {
-  list-style: none;
-}
-
-#priceList li {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(122,44,255,0.22);
-  border-radius: 14px;
-  padding: 12px 14px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-}
-
-#priceList strong {
-  color: var(--purple);
-}
-
-/* QR */
-.qr-img {
-  width: 220px;
-  display: block;
-  margin: 25px auto;
-}
-
-/* ================= FLOATING ================= */
-.floating-whatsapp,
-.floating-telegram {
-  position: fixed;
-  right: 20px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  z-index: 999;
-}
-
-/* WhatsApp bottom */
-.floating-whatsapp {
-  bottom: 20px;
-  background: #25D366;
-  box-shadow: 0 0 24px rgba(37,211,102,0.85);
-}
-
-/* Telegram top */
-.floating-telegram {
-  bottom: 90px;
-  background: linear-gradient(135deg, #229ED9, #1c88c7);
-  box-shadow: 0 0 24px rgba(34,158,217,0.85);
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 480px) {
-  .btn,
-  .payment-btn {
-    width: 100%;
-  }
-
-  .payment h2 {
-    font-size: 18px;
-  }
-
-  footer {
-    font-size: 12px;
-  }
-
-  #priceList li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
+@media(max-width:520px){
+  .container{ grid-template-columns:1fr; }
+  .review-box{ grid-template-columns:1fr; }
 }
