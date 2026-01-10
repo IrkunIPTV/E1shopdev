@@ -1,24 +1,31 @@
 /* =================================================
-   MIDNIGHT PURPLE × BLACK — PREMIUM NEON THEME
+   ROYAL PURPLE × DARK BLUE — PREMIUM WAVE NEON
    ================================================= */
 
 /* ---------- VARIABLES ---------- */
 :root{
-  --bg0:#020106;
-  --bg1:#060311;
-  --bg2:#12061f;
+  /* base */
+  --bg0:#02040a;     /* deep black blue */
+  --bg1:#050b1c;     /* midnight blue */
+  --bg2:#0a1030;     /* royal dark blue */
 
-  --text:#f4f1ff;
+  --text:#f4f3ff;
 
   --glass: rgba(255,255,255,0.08);
   --glass2: rgba(255,255,255,0.04);
   --border: rgba(255,255,255,0.22);
 
-  /* purple neon */
-  --p1:#4b1d7a;
-  --p2:#7a2cff;
-  --pGlow: rgba(122,44,255,0.45);
-  --pGlow2: rgba(75,29,122,0.35);
+  /* royal purple */
+  --p1:#6b2cff;
+  --p2:#9b4dff;
+  --pGlow: rgba(155,77,255,0.45);
+  --pGlow2: rgba(107,44,255,0.35);
+
+  /* dark blue neon */
+  --d1:#1b3cff;
+  --d2:#0b6cff;
+  --dGlow: rgba(27,60,255,0.40);
+  --dGlow2: rgba(11,108,255,0.30);
 
   /* red neon */
   --r1:#ff2a2a;
@@ -48,9 +55,9 @@ body{
   font-family:"Segoe UI",Arial,sans-serif;
   color:var(--text);
   background:
-    radial-gradient(1200px 600px at 15% 10%, rgba(122,44,255,0.25), transparent 60%),
-    radial-gradient(1000px 600px at 85% 12%, rgba(75,29,122,0.22), transparent 58%),
-    radial-gradient(900px 600px at 50% 95%, rgba(80,40,160,0.18), transparent 62%),
+    radial-gradient(1200px 600px at 15% 12%, rgba(155,77,255,0.28), transparent 60%),
+    radial-gradient(1100px 600px at 85% 10%, rgba(27,60,255,0.25), transparent 58%),
+    radial-gradient(900px 600px at 50% 95%, rgba(90,50,200,0.18), transparent 62%),
     linear-gradient(180deg, var(--bg2), var(--bg0));
 }
 
@@ -75,16 +82,20 @@ body{
   padding:18px;
   text-align:center;
 
-  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03));
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.10),
+    rgba(255,255,255,0.02)
+  );
   backdrop-filter: blur(18px) saturate(170%);
   -webkit-backdrop-filter: blur(18px) saturate(170%);
   border:1px solid var(--border);
 
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.05) inset,
-    0 28px 120px rgba(0,0,0,0.78),
+    0 30px 130px rgba(0,0,0,0.80),
     0 0 40px var(--pGlow),
-    0 0 70px rgba(0,0,0,0.25);
+    0 0 70px var(--dGlow);
 }
 
 .app-card::before{
@@ -93,8 +104,8 @@ body{
   inset:-2px;
   background:
     radial-gradient(900px 260px at 10% 10%, var(--pGlow), transparent 62%),
-    radial-gradient(900px 260px at 90% 0%, var(--pGlow2), transparent 60%),
-    radial-gradient(900px 300px at 50% 120%, rgba(80,30,160,0.25), transparent 65%);
+    radial-gradient(900px 260px at 90% 0%, var(--dGlow), transparent 60%),
+    radial-gradient(900px 300px at 50% 120%, rgba(80,40,200,0.25), transparent 65%);
   opacity:.65;
   pointer-events:none;
 }
@@ -111,7 +122,7 @@ body{
 .app-card h2{ margin:12px 0 6px; font-size:20px; }
 .app-card p{ margin:0 0 14px; opacity:.85; font-size:13px; }
 
-/* ---------- BUTTONS (DEFAULT PURPLE NEON) ---------- */
+/* ---------- BUTTONS (ROYAL PURPLE) ---------- */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -125,7 +136,7 @@ body{
   cursor:pointer;
   text-decoration:none;
 
-  background: linear-gradient(135deg, rgba(75,29,122,0.80), rgba(122,44,255,0.72));
+  background: linear-gradient(135deg, rgba(107,44,255,0.80), rgba(155,77,255,0.72));
   backdrop-filter: blur(12px);
 
   color:#fff;
@@ -200,17 +211,9 @@ button.btn:hover,
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.10) inset,
     0 22px 95px rgba(0,0,0,0.78),
-    0 0 28px var(--pGlow);
+    0 0 28px var(--dGlow);
   transition:.18s ease;
 }
-.payment-btn:hover{
-  transform: translateY(-2px);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.16) inset,
-    0 28px 125px rgba(0,0,0,0.90),
-    0 0 40px var(--pGlow);
-}
-.payment-btn.qr{ cursor:pointer; }
 
 /* ---------- REVIEWS ---------- */
 .reviews{ width:min(1100px,92%); margin:40px auto 0; text-align:center; }
@@ -283,76 +286,6 @@ button.btn:hover,
     0 0 36px var(--bGlow),
     0 0 70px var(--bGlow2),
     0 18px 60px rgba(0,0,0,0.70);
-}
-
-.floating-whatsapp:hover,
-.floating-telegram:hover{
-  transform: translateY(-2px);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.16) inset,
-    0 0 55px rgba(255,255,255,0.10),
-    0 0 100px rgba(255,255,255,0.10),
-    0 26px 90px rgba(0,0,0,0.85);
-}
-
-/* ---------- MODALS ---------- */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.82);
-  backdrop-filter: blur(12px);
-  z-index:80;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-}
-
-.modal-box{
-  width:min(560px,94%);
-  border-radius:26px;
-
-  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-  backdrop-filter: blur(22px);
-  border:1px solid rgba(255,255,255,0.26);
-
-  box-shadow:
-    0 40px 160px rgba(0,0,0,0.88),
-    0 0 0 1px rgba(255,255,255,0.10) inset,
-    0 0 40px var(--pGlow);
-  padding:18px;
-}
-
-#priceList{
-  list-style:none;
-  padding:0;
-  margin:0 0 12px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-#priceList li{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  padding:12px;
-  border-radius:16px;
-
-  background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
-  backdrop-filter: blur(16px);
-  border:1px solid rgba(255,255,255,0.20);
-}
-
-/* QR image */
-.qr-img{
-  width:100%;
-  max-width:320px;
-  display:block;
-  margin:10px auto 14px;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,0.22);
 }
 
 /* ---------- FOOTER (SMALL & CENTERED) ---------- */
