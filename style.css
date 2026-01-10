@@ -4,7 +4,6 @@
 
 /* ---------- VARIABLES ---------- */
 :root{
-  /* base */
   --bg0:#020106;
   --bg1:#060311;
   --bg2:#12061f;
@@ -15,25 +14,25 @@
   --glass2: rgba(255,255,255,0.04);
   --border: rgba(255,255,255,0.22);
 
-  /* midnight purple neon */
+  /* purple neon */
   --p1:#4b1d7a;
   --p2:#7a2cff;
   --pGlow: rgba(122,44,255,0.45);
   --pGlow2: rgba(75,29,122,0.35);
 
-  /* red neon (packages + reseller) */
+  /* red neon */
   --r1:#ff2a2a;
   --r2:#ff006a;
   --rGlow: rgba(255,42,42,0.50);
   --rGlow2: rgba(255,0,106,0.35);
 
-  /* green neon (whatsapp) */
+  /* green neon */
   --g1:#22ff6a;
   --g2:#00c853;
   --gGlow: rgba(34,255,106,0.45);
   --gGlow2: rgba(0,200,83,0.30);
 
-  /* blue neon (telegram) */
+  /* blue neon */
   --b1:#3aa0ff;
   --b2:#2b55ff;
   --bGlow: rgba(58,160,255,0.45);
@@ -128,7 +127,6 @@ body{
 
   background: linear-gradient(135deg, rgba(75,29,122,0.80), rgba(122,44,255,0.72));
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 
   color:#fff;
   border:1px solid rgba(255,255,255,0.34);
@@ -193,7 +191,6 @@ button.btn:hover,
 
   background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
 
   border:1px solid rgba(255,255,255,0.30);
   color:#fff;
@@ -346,6 +343,25 @@ button.btn:hover,
   background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
   backdrop-filter: blur(16px);
   border:1px solid rgba(255,255,255,0.20);
+}
+
+/* QR image */
+.qr-img{
+  width:100%;
+  max-width:320px;
+  display:block;
+  margin:10px auto 14px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.22);
+}
+
+/* ---------- FOOTER (SMALL & CENTERED) ---------- */
+footer{
+  text-align:center;
+  padding:10px 0;
+  font-size:11px;
+  opacity:0.65;
+  margin-top:30px;
 }
 
 /* ---------- RESPONSIVE ---------- */
