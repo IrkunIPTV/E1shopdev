@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +42,6 @@
     <h2>AXTRO MULTIROOM</h2>
     <p>Multiroom IPTV Package</p>
     <a href="#" class="btn" target="_blank" rel="noopener">⬇ Download App</a>
-    <!-- Use MULTIROOM key for packages -->
     <button class="btn" onclick="openPackage('MULTIROOM','AXTRO MULTIROOM')">📦 View Packages</button>
     <a href="#" class="btn outline" target="_blank" rel="noopener">📞 Support Group</a>
   </div>
@@ -213,6 +211,10 @@
   <div class="modal-box">
     <h2 id="appTitle"></h2>
     <ul id="priceList"></ul>
+
+    <!-- Download button appears here -->
+    <div id="downloadBox" style="margin-top:12px;"></div>
+
     <button class="btn outline" onclick="closePackage()">Close</button>
   </div>
 </div>
@@ -226,7 +228,190 @@
 </div>
 
 <!-- ================= SCRIPT ================= -->
-<script src="app.js"></script>
+<script>
+  // ====== SENARAI HARGA (YOUR DATA) ======
+  const packageData = {
+    "KARAOKE TV": {
+      prices: ["💰 RM15 - 30 HARI"],
+      download: "https://t.me/irwanluffy/73862/73866"
+    },
+    "MULTIROOM": {
+      prices: ["💰 RM30 SEBULAN"],
+      download: "http://bit.ly/multi2001"
+    },
+    "NETFLIX": {
+      prices: ["💰 RM28 - 30 HARI"],
+      download: "#"
+    },
+    "GO OTT": {
+      prices: [
+        "💰 GO 1 RM13 / 33Hari",
+        "💰 GO 2 RM29 / 77Hari",
+        "💰 GO 3 RM62 / 173Hari"
+      ],
+      download: "https://cq5u.short.gy/ott_v1702"
+    },
+    "KINGTV": {
+      prices: [
+        "💰 RM15 / 1 Bulan",
+        "💰 RM38 / 3 Bulan",
+        "💰 RM70 / 6 Bulan",
+        "💰 RM110 / 1 TAHUN",
+        "💰 RM300 / 4 TAHUN"
+      ],
+      download: "https://kingsyok.work.gd"
+    },
+    "SYOKTV": {
+      prices: [
+        "💰 RM13 / 1 Bulan",
+        "💰 RM33 / 3 Bulan",
+        "💰 RM60 / 6 Bulan",
+        "💰 RM110 / 1 Tahun",
+        "💰 RM270 / UNLIMITED"
+      ],
+      download: "https://kingsyok.work.gd"
+    },
+    "MSTV": {
+      prices: [
+        "💰 1 Bulan 1 device = RM29",
+        "💰 1 Bulan 2 device = RM44",
+        "💰 3 Bulan 1 device = RM59",
+        "💰 3 Bulan 2 device = RM84",
+        "💰 1 Tahun 2 device = RM254"
+      ],
+      download: "https://play.google.com/store/search?q=MSTV&c=apps"
+    },
+    "WDHD": {
+      prices: [
+        "💲 1 BULAN : RM35",
+        "💲 3 BULAN : RM90",
+        "💲 6 BULAN : RM140",
+        "💲 12 BULAN : RM240"
+      ],
+      download: "https://bit.ly/3CFkDtW"
+    },
+    "MYIPTV4K": {
+      prices: [
+        "💰 3 BULAN : RM110",
+        "💰 6 BULAN : RM170",
+        "💰 12 BULAN : RM270"
+      ],
+      download: "https://tinyurl.com/msypbuan"
+    },
+    "IPTV4K": {
+      prices: [
+        "💰 6 BULAN : RM170",
+        "💰 12 BULAN : RM270"
+      ],
+      download: "https://bit.ly/iptv4kmei"
+    },
+    "SKYTV": {
+      prices: [
+        "(TVBOX VERSION)",
+        "💰 1 Bulan ➡️ RM22",
+        "💰 3 Bulan ➡️ RM55",
+        "💰 6 Bulan ➡️ RM90",
+        "💰 1 Tahun ➡️ RM150",
+        "(Free 1 Bulan Mobile Version)",
+        "💰 2 Tahun ➡️ RM220",
+        "(Free 1 Bulan Mobile Version)",
+        "LifeTime ➡️ RM320",
+        "(Free 1 Tahun Mobile Version)"
+      ],
+      download: "https://www.my-skytv.com"
+    },
+    "TVTECH": {
+      prices: [
+        "TVTECH PRO - OTT",
+        "1️⃣ PAKEJ = 1 DEVICE",
+        "💰 1 BLN - RM12",
+        "💰 3 BLN - RM35",
+        "💰 6 BLN - RM60",
+        "💰 1 THN - RM110",
+        "2️⃣ PAKEJ = 2 DEVICE",
+        "💰 1 BLN - RM20",
+        "💰 3 BLN - RM55",
+        "💰 6 BLN - RM105",
+        "💰 1 THN - RM200"
+      ],
+      download: "https://link2u.cc/tvtech"
+    },
+    "APOGO": {
+      prices: [
+        "APOGO / APOMO",
+        "📕 BASIC PAKEJ:",
+        "• 1 Month (30 Days) 👉 RM22",
+        "• 3 Months (90 Days) 👉 RM58",
+        "• 6 Months (180 Days) 👉 RM108",
+        "• 12 Months (365 Days) 👉 RM202",
+        "———————————————",
+        "📘 PLUS PAKEJ (include 18+):",
+        "• 1 Month (30 Days) 👉 RM26",
+        "• 3 Months (90 Days) 👉 RM70",
+        "• 6 Months (180 Days) 👉 RM127",
+        "• 12 Months (365 Days) 👉 RM238"
+      ],
+      download: "https://www.my6868.cc/"
+    },
+    "ABANGTV": {
+      prices: [
+        "5 Hari = (RM5)",
+        "1 Bulan = (RM22)",
+        "3 Bulan = (RM60)",
+        "6 Bulan = (RM90)",
+        "1 Tahun = (RM150)"
+      ],
+      download: "https://www.abangtv.com/"
+    }
+  };
+
+  function openPackage(key, title) {
+    const modal = document.getElementById("packageModal");
+    const appTitle = document.getElementById("appTitle");
+    const priceList = document.getElementById("priceList");
+    const downloadBox = document.getElementById("downloadBox");
+
+    appTitle.textContent = title;
+    priceList.innerHTML = "";
+    downloadBox.innerHTML = "";
+
+    const data = packageData[key];
+
+    if (!data) {
+      priceList.innerHTML = "<li>No package available.</li>";
+      modal.style.display = "flex";
+      return;
+    }
+
+    data.prices.forEach(line => {
+      const li = document.createElement("li");
+      li.textContent = line;
+      priceList.appendChild(li);
+    });
+
+    // Download button under price list
+    const link = data.download && data.download !== "#" ? data.download : "#";
+    downloadBox.innerHTML = `
+      <a href="${link}" class="btn" target="_blank" rel="noopener" style="width:100%;text-align:center;">
+        ⬇ Download App
+      </a>
+    `;
+
+    modal.style.display = "flex";
+  }
+
+  function closePackage() {
+    document.getElementById("packageModal").style.display = "none";
+  }
+
+  function openQR() {
+    document.getElementById("qrModal").style.display = "flex";
+  }
+
+  function closeQR() {
+    document.getElementById("qrModal").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
