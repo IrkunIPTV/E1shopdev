@@ -221,6 +221,10 @@
   <div class="modal-box">
     <h2 id="appTitle"></h2>
     <ul id="priceList"></ul>
+
+    <!-- NEW: I HAVE PAID BUTTON -->
+    <button class="btn whatsapp-btn" onclick="iHavePaid()">✅ I Have Paid</button>
+
     <button class="btn outline" onclick="closePackage()">Close</button>
   </div>
 </div>
@@ -235,9 +239,12 @@
 
 <!-- ================= SCRIPT ================= -->
 <script>
-  // Each price has its own ToyyibPay link (replace placeholders)
+  // WhatsApp destination (your number)
+  const WHATSAPP_NUMBER = "601158256253";
+
+  // Each price has its own ToyyibPay link
   const packageData = {
-     "KARAOKE TV": {
+    "KARAOKE TV": {
       prices: [
         { label: "💰 RM15 ➡️ 30 HARI", url: "https://toyyibpay.com/KARAOKE-TV-RM15-30-HARI" }
       ]
@@ -312,8 +319,7 @@
         { label: "💰 1 BULAN TVBOX ➡️ RM22", url: "https://toyyibpay.com/SKYTV-1-BULAN-TVBOX-RM22" },
         { label: "💰 3 BULAN TVBOX ➡️ RM55", url: "https://toyyibpay.com/SKYTV-3-BULAN-TVBOX-RM55" },
         { label: "💰 6 BULAN TVBOX ➡️ RM90", url: "https://toyyibpay.com/SKYTV-6-BULAN-TVBOX-RM90" },
-        { label: "💰 1 TAHUN TVBOX ➡️ RM150", url: "https://toyyibpay.com/SKYTV-1-TAHUN-TVBOX-RM150" },
-       
+        { label: "💰 1 TAHUN TVBOX ➡️ RM150", url: "https://toyyibpay.com/SKYTV-1-TAHUN-TVBOX-RM150" }
       ]
     },
     "TVTECH": {
@@ -322,11 +328,11 @@
         { label: "💰 1 DEVICE ➡️ 3 BLN RM35", url: "https://toyyibpay.com/TVTECH-1-DEVICE-3-BLN-RM35" },
         { label: "💰 1 DEVICE ➡️ 6 BLN RM60", url: "https://toyyibpay.com/TVTECH-1-DEVICE-6-BLN-RM60" },
         { label: "💰 1 DEVICE ➡️ 1 THN RM110", url: "https://toyyibpay.com/TVTECH-1-DEVICE-1-THN-RM110" },
-        
-		{ label: "💰 2 DEVICE ➡️ 1 BLN RM20", url: "https://toyyibpay.com/TVTECH-2-DEVICE-1-BLN-RM20" },
+
+        { label: "💰 2 DEVICE ➡️ 1 BLN RM20", url: "https://toyyibpay.com/TVTECH-2-DEVICE-1-BLN-RM20" },
         { label: "💰 2 DEVICE ➡️ 3 BLN RM55", url: "https://toyyibpay.com/TVTECH-2-DEVICE-3-BLN-RM55" },
         { label: "💰 2 DEVICE ➡️ 6 BLN RM105", url: "https://toyyibpay.com/TVTECH-2-DEVICE-6-BLN-RM105" },
-        { label: "💰 2 DEVICE ➡️ 1 THN RM200", url: "https://toyyibpay.com/TVTECH-2-DEVICE-1-THN-RM200" },
+        { label: "💰 2 DEVICE ➡️ 1 THN RM200", url: "https://toyyibpay.com/TVTECH-2-DEVICE-1-THN-RM200" }
       ]
     },
     "APOGO": {
@@ -349,11 +355,11 @@
         { label: "6 BULAN ➡️ RM90", url: "https://toyyibpay.com/ABANGTV-6-BULAN-RM90" },
         { label: "1 TAHUN ➡️ RM150", url: "https://toyyibpay.com/ABANGTV-1-TAHUN-RM150" }
       ]
-    },
-
-    // Optional: if you want to show price list for NETFLIX, IPTV4K, etc, add their URLs above too.
-    // If not set, it will show "No package available."
+    }
   };
+
+  // Store selected package label (so WhatsApp message can include it)
+  let selectedPackageLabel = "";
 
   function openPackage(key, title) {
     const modal = document.getElementById("packageModal");
@@ -362,6 +368,7 @@
 
     appTitle.textContent = title;
     priceList.innerHTML = "";
+    selectedPackageLabel = ""; // reset
 
     const data = packageData[key];
     if (!data || !Array.isArray(data.prices) || data.prices.length === 0) {
@@ -383,6 +390,11 @@
       pay.textContent = "Pay Now";
       pay.className = "btn small";
 
+      // When user clicks Pay Now, remember which package they chose
+      pay.addEventListener("click", () => {
+        selectedPackageLabel = item.label;
+      });
+
       li.appendChild(text);
       li.appendChild(pay);
       priceList.appendChild(li);
@@ -401,6 +413,19 @@
 
   function closeQR() {
     document.getElementById("qrModal").style.display = "none";
+  }
+
+  // NEW: WhatsApp redirect after customer paid
+  function iHavePaid() {
+    const appName = document.getElementById("appTitle").textContent || "E1SHOP";
+    const pkg = selectedPackageLabel ? `\n🧾 Package: ${selectedPackageLabel}` : "";
+
+    const message = encodeURIComponent(
+      `Hi Admin 👋\n\nI have made payment.\n📦 Service: ${appName}${pkg}\n\nPlease help to verify & activate. Thank you 🙏`
+    );
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    window.open(url, "_blank");
   }
 </script>
 
