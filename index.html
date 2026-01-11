@@ -237,115 +237,117 @@
 <script>
   // Each price has its own ToyyibPay link (replace placeholders)
   const packageData = {
-    "KARAOKE TV": {
+     "KARAOKE TV": {
       prices: [
-        { label: "💰 RM15 ➡️ 30 HARI", url: "https://toyyibpay.com/PASTE_LINK_HERE_01" }
+        { label: "💰 RM15 - 30 HARI", url: "https://toyyibpay.com/KARAOKE-TV-RM15-30-HARI" }
       ]
     },
     "MULTIROOM": {
       prices: [
-        { label: "💰 RM30 ➡️ SEBULAN", url: "https://toyyibpay.com/PASTE_LINK_HERE_02" }
+        { label: "💰 RM30 SEBULAN", url: "https://toyyibpay.com/MULTIROOM-RM30-30-HARI" }
       ]
     },
     "NETFLIX": {
       prices: [
-        { label: "💰 RM28 ➡️ 30 HARI", url: "https://toyyibpay.com/PASTE_LINK_HERE_03" }
+        { label: "💰 RM28 - 30 HARI", url: "https://toyyibpay.com/NETFLIX-RM28-30-HARI" }
       ]
     },
     "GO OTT": {
       prices: [
-        { label: "💰 GO 1 RM13 ➡️ 33Hari", url: "https://toyyibpay.com/PASTE_LINK_HERE_04" },
-        { label: "💰 GO 2 RM29 ➡️ 77Hari", url: "https://toyyibpay.com/PASTE_LINK_HERE_05" },
-        { label: "💰 GO 3 RM62 ➡️ 173Hari", url: "https://toyyibpay.com/PASTE_LINK_HERE_06" }
+        { label: "💰 GO 1 RM13 - 33HARI", url: "https://toyyibpay.com/GO-1-RM13-33Hari" },
+        { label: "💰 GO 2 RM29 - 77HARI", url: "https://toyyibpay.com/GO-2-RM29-77HARI" },
+        { label: "💰 GO 3 RM62 - 173HARI", url: "https://toyyibpay.com/GO-3-RM62-173HARI" }
       ]
     },
     "KINGTV": {
       prices: [
-        { label: "💰 RM15 ➡️ 1 Bulan", url: "https://toyyibpay.com/PASTE_LINK_HERE_07" },
-        { label: "💰 RM38 ➡️ 3 Bulan", url: "https://toyyibpay.com/PASTE_LINK_HERE_08" },
-        { label: "💰 RM70 ➡️ 6 Bulan", url: "https://toyyibpay.com/PASTE_LINK_HERE_09" },
-        { label: "💰 RM110 ➡️ 1 TAHUN", url: "https://toyyibpay.com/PASTE_LINK_HERE_10" },
-        { label: "💰 RM300 ➡️ 4 TAHUN", url: "https://toyyibpay.com/PASTE_LINK_HERE_11" }
+        { label: "💰 RM15 - 1 BULAN", url: "https://toyyibpay.com/KINGTV-RM15-1-BULAN" },
+        { label: "💰 RM38 - 3 BULAN", url: "https://toyyibpay.com/KINGTV-RM38-3-BULAN" },
+        { label: "💰 RM70 - 6 BULAN", url: "https://toyyibpay.com/KINGTV-RM70-6-BULAN" },
+        { label: "💰 RM110 - 1 TAHUN", url: "https://toyyibpay.com/KINGTV-RM110-1-TAHUN" },
+        { label: "💰 RM300 - 4 TAHUN", url: "https://toyyibpay.com/KINGTV-RM300-4-TAHUN" }
       ]
     },
     "SYOKTV": {
       prices: [
-        { label: "💰 RM13 ➡️ 1 Bulan", url: "https://toyyibpay.com/PASTE_LINK_HERE_12" },
-        { label: "💰 RM33 ➡️ 3 Bulan", url: "https://toyyibpay.com/PASTE_LINK_HERE_13" },
-        { label: "💰 RM60 ➡️ 6 Bulan", url: "https://toyyibpay.com/PASTE_LINK_HERE_14" },
-        { label: "💰 RM110 ➡️ 1 Tahun", url: "https://toyyibpay.com/PASTE_LINK_HERE_15" },
-        { label: "💰 RM270 ➡️ UNLIMITED", url: "https://toyyibpay.com/PASTE_LINK_HERE_16" }
+        { label: "💰 RM13 - 1 BULAN", url: "https://toyyibpay.com/SYOKTV-RM13-1-BULAN" },
+        { label: "💰 RM33 - 3 BULAN", url: "https://toyyibpay.com/SYOKTV-RM33-3-BULAN" },
+        { label: "💰 RM60 - 6 BULAN", url: "https://toyyibpay.com/SYOKTV-RM60-6-BULAN" },
+        { label: "💰 RM110 - 1 TAHUN", url: "https://toyyibpay.com/SYOKTV-RM110-1-TAHUN" },
+        { label: "💰 RM270 - UNLIMITED", url: "https://toyyibpay.com/SYOKTV-RM270-UNLIMITED" }
       ]
     },
     "MSTV": {
       prices: [
-        { label: "💰 1 Bulan 1 device ➡️ RM29", url: "https://toyyibpay.com/PASTE_LINK_HERE_17" },
-        { label: "💰 1 Bulan 2 device ➡️ RM44", url: "https://toyyibpay.com/PASTE_LINK_HERE_18" },
-        { label: "💰 3 Bulan 1 device ➡️ RM59", url: "https://toyyibpay.com/PASTE_LINK_HERE_19" },
-        { label: "💰 3 Bulan 2 device ➡️ RM84", url: "https://toyyibpay.com/PASTE_LINK_HERE_20" },
-        { label: "💰 1 Tahun 2 device ➡️ RM254", url: "https://toyyibpay.com/PASTE_LINK_HERE_21" }
+        { label: "💰 1 BULAN 1 DEVICE = RM29", url: "https://toyyibpay.com/MSTV-1-BULAN-1-device-RM29" },
+        { label: "💰 1 BULAN 2 DEVICE = RM44", url: "https://toyyibpay.com/MSTV-1-BULAN-2-DEVICE-RM44" },
+        { label: "💰 3 BULAN 1 DEVICE = RM59", url: "https://toyyibpay.com/MSTV-3-BULAN-1-DEVICE-RM59" },
+        { label: "💰 3 BULAN 2 DEVICE = RM84", url: "https://toyyibpay.com/MSTV-3-BULAN-2-DEVICE-RM84" },
+        { label: "💰 1 TAHUN 2 DEVICE = RM254", url: "https://toyyibpay.com/MSTV-1-TAHUN-2-DEVICE-RM254" }
       ]
     },
     "WDHD": {
       prices: [
-        { label: "💲 1 BULAN ➡️ RM35", url: "https://toyyibpay.com/PASTE_LINK_HERE_22" },
-        { label: "💲 3 BULAN ➡️ RM90", url: "https://toyyibpay.com/PASTE_LINK_HERE_23" },
-        { label: "💲 6 BULAN ➡️ RM140", url: "https://toyyibpay.com/PASTE_LINK_HERE_24" },
-        { label: "💲 12 BULAN ➡️ RM240", url: "https://toyyibpay.com/PASTE_LINK_HERE_25" }
+        { label: "💲 1 BULAN - RM35", url: "https://toyyibpay.com/WDHD-1-BULAN-RM35" },
+        { label: "💲 3 BULAN - RM90", url: "https://toyyibpay.com/WDHD-3-BULAN-RM90" },
+        { label: "💲 6 BULAN - RM140", url: "https://toyyibpay.com/WDHD-6-BULAN-RM140" },
+        { label: "💲 12 BULAN - RM240", url: "https://toyyibpay.com/WDHD-12-BULAN-RM240" }
       ]
     },
     "MYIPTV4K": {
       prices: [
-        { label: "💰 3 BULAN ➡️ RM110", url: "https://toyyibpay.com/PASTE_LINK_HERE_26" },
-        { label: "💰 6 BULAN ➡️ RM170", url: "https://toyyibpay.com/PASTE_LINK_HERE_27" },
-        { label: "💰 12 BULAN ➡️ RM270", url: "https://toyyibpay.com/PASTE_LINK_HERE_28" }
+        { label: "💰 3 BULAN - RM110", url: "https://toyyibpay.com/MYIPTV4K-3-BULAN-RM110" },
+        { label: "💰 6 BULAN - RM170", url: "https://toyyibpay.com/MYIPTV4K-6-BULAN-RM170" },
+        { label: "💰 12 BULAN - RM270", url: "https://toyyibpay.com/MYIPTV4K-12-BULAN-RM270" }
       ]
     },
     "IPTV4K": {
       prices: [
-        { label: "💰 6 BULAN ➡️ RM170", url: "https://toyyibpay.com/PASTE_LINK_HERE_29" },
-        { label: "💰 12 BULAN ➡️ RM270", url: "https://toyyibpay.com/PASTE_LINK_HERE_30" }
+        { label: "💰 6 BULAN - RM170", url: "https://toyyibpay.com/IPTV4K-6-BULAN-RM170" },
+        { label: "💰 12 BULAN - RM270", url: "https://toyyibpay.com/IPTV4K-12-BULAN-RM270" }
       ]
     },
     "SKYTV": {
       prices: [
-        { label: "💰 1 Bulan ➡️ RM22", url: "https://toyyibpay.com/PASTE_LINK_HERE_31" },
-        { label: "💰 3 Bulan ➡️ RM55", url: "https://toyyibpay.com/PASTE_LINK_HERE_32" },
-        { label: "💰 6 Bulan ➡️ RM90", url: "https://toyyibpay.com/PASTE_LINK_HERE_33" },
-        { label: "💰 1 Tahun ➡️ RM150", url: "https://toyyibpay.com/PASTE_LINK_HERE_34" },
-        { label: "💰 2 Tahun ➡️ RM220", url: "https://toyyibpay.com/PASTE_LINK_HERE_35" },
-        { label: "💰 LifeTime ➡️ RM320", url: "https://toyyibpay.com/PASTE_LINK_HERE_36" }
+        { label: "💰 1 BULAN TVBOX- RM22", url: "https://toyyibpay.com/SKYTV-1-BULAN-TVBOX-RM22" },
+        { label: "💰 3 BULAN TVBOX- RM55", url: "https://toyyibpay.com/SKYTV-3-BULAN-TVBOX-RM55" },
+        { label: "💰 6 BULAN TVBOX- RM90", url: "https://toyyibpay.com/SKYTV-6-BULAN-TVBOX-RM90" },
+        { label: "💰 1 TAHUN TVBOX- RM150", url: "https://toyyibpay.com/SKYTV-1-TAHUN-TVBOX-RM150" },
+       
       ]
     },
     "TVTECH": {
       prices: [
-        { label: "💰 TVTECH PRO - OTT", url: "https://toyyibpay.com/PASTE_LINK_HERE_37" },
-        { label: "💰 1️⃣ 1 DEVICE - 1 BLN RM12", url: "https://toyyibpay.com/PASTE_LINK_HERE_38" },
-        { label: "💰 1️⃣ 1 DEVICE - 3 BLN RM35", url: "https://toyyibpay.com/PASTE_LINK_HERE_39" },
-        { label: "💰 1️⃣ 1 DEVICE - 6 BLN RM60", url: "https://toyyibpay.com/PASTE_LINK_HERE_40" },
-        { label: "💰 1️⃣ 1 DEVICE - 1 THN RM110", url: "https://toyyibpay.com/PASTE_LINK_HERE_41" },
-        { label: "💰 2️⃣ 2 DEVICE - 1 THN RM200", url: "https://toyyibpay.com/PASTE_LINK_HERE_42" }
+        { label: "💰 1 DEVICE - 1 BLN RM12", url: "https://toyyibpay.com/TVTECH-1-DEVICE-1-BLN-RM12" },
+        { label: "💰 1 DEVICE - 3 BLN RM35", url: "https://toyyibpay.com/TVTECH-1-DEVICE-3-BLN-RM35" },
+        { label: "💰 1 DEVICE - 6 BLN RM60", url: "https://toyyibpay.com/TVTECH-1-DEVICE-6-BLN-RM60" },
+        { label: "💰 1 DEVICE - 1 THN RM110", url: "https://toyyibpay.com/TVTECH-1-DEVICE-1-THN-RM110" },
+        
+		{ label: "💰 2 DEVICE - 1 BLN RM20", url: "https://toyyibpay.com/TVTECH-2-DEVICE-1-BLN-RM20" },
+        { label: "💰 2 DEVICE - 3 BLN RM55", url: "https://toyyibpay.com/TVTECH-2-DEVICE-3-BLN-RM55" },
+        { label: "💰 2 DEVICE - 6 BLN RM105", url: "https://toyyibpay.com/TVTECH-2-DEVICE-6-BLN-RM105" },
+        { label: "💰 2 DEVICE - 1 THN RM200", url: "https://toyyibpay.com/TVTECH-2-DEVICE-1-THN-RM200" },
       ]
     },
     "APOGO": {
       prices: [
-        { label: "📕 BASIC • 1 Month (30 Days) 👉 RM22", url: "https://toyyibpay.com/PASTE_LINK_HERE_43" },
-        { label: "📕 BASIC • 3 Months (90 Days) 👉 RM58", url: "https://toyyibpay.com/PASTE_LINK_HERE_44" },
-        { label: "📕 BASIC • 6 Months (180 Days) 👉 RM108", url: "https://toyyibpay.com/PASTE_LINK_HERE_45" },
-        { label: "📕 BASIC • 12 Months (365 Days) 👉 RM202", url: "https://toyyibpay.com/PASTE_LINK_HERE_46" },
-        { label: "📘 PLUS (18+) • 1 Month (30 Days) 👉 RM26", url: "https://toyyibpay.com/PASTE_LINK_HERE_47" },
-        { label: "📘 PLUS (18+) • 3 Months (90 Days) 👉 RM70", url: "https://toyyibpay.com/PASTE_LINK_HERE_48" },
-        { label: "📘 PLUS (18+) • 6 Months (180 Days) 👉 RM127", url: "https://toyyibpay.com/PASTE_LINK_HERE_49" },
-        { label: "📘 PLUS (18+) • 12 Months (365 Days) 👉 RM238", url: "https://toyyibpay.com/PASTE_LINK_HERE_50" }
+        { label: "📕 BASIC  1 Month - RM22", url: "https://toyyibpay.com/APOGO-BASIC-1-Month-RM22" },
+        { label: "📕 BASIC  3 Months - RM58", url: "https://toyyibpay.com/APOGO-BASIC-3-Months-RM58" },
+        { label: "📕 BASIC  6 Months - RM108", url: "https://toyyibpay.com/APOGO-BASIC-6-Months-RM108" },
+        { label: "📕 BASIC  12 Months - RM202", url: "https://toyyibpay.com/APOGO-BASIC-12-Months-RM202" },
+        { label: "📘 PLUS 18  1 Month - RM26", url: "https://toyyibpay.com/APOGO-PLUS-18-1-Month-RM26" },
+        { label: "📘 PLUS 18  3 Month - RM70", url: "https://toyyibpay.com/APOGO-PLUS-18-3-Month-RM70" },
+        { label: "📘 PLUS 18  6 Month - RM127", url: "https://toyyibpay.com/APOGO-PLUS-18-6-Month-RM127" },
+        { label: "📘 PLUS 18  12 Month - RM238", url: "https://toyyibpay.com/APOGOPLUS-18-12-Month-RM238" }
       ]
     },
     "ABANGTV": {
       prices: [
-        { label: "5 Hari ➡️ (RM5)", url: "https://toyyibpay.com/PASTE_LINK_HERE_51" },
-        { label: "1 Bulan ➡️ (RM22)", url: "https://toyyibpay.com/PASTE_LINK_HERE_52" },
-        { label: "3 Bulan ➡️ (RM60)", url: "https://toyyibpay.com/PASTE_LINK_HERE_53" },
-        { label: "6 Bulan ➡️ (RM90)", url: "https://toyyibpay.com/PASTE_LINK_HERE_54" },
-        { label: "1 Tahun ➡️ (RM150)", url: "https://toyyibpay.com/PASTE_LINK_HERE_55" }
+        { label: "5 Hari - RM5", url: "https://toyyibpay.com/ABANGTV-5-Hari-RM5" },
+        { label: "1 BULAN - RM22", url: "https://toyyibpay.com/ABANGTV-1-BULAN-RM22" },
+        { label: "3 BULAN - RM60", url: "https://toyyibpay.com/ABANGTV-3-BULAN-RM60" },
+        { label: "6 BULAN - RM90", url: "https://toyyibpay.com/ABANGTV-6-BULAN-RM90" },
+        { label: "1 TAHUN - RM150", url: "https://toyyibpay.com/ABANGTV-1-TAHUN-RM150" }
       ]
     },
 
