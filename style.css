@@ -1,5 +1,7 @@
 /* =================================================
-   PURPLE • BLACK • WHITE — NEON GLASS THEME
+   PURPLE • BLACK • WHITE — NEON GLASS THEME (MERGED)
+   + WhatsApp button styles
+   + Mobile-friendly improvements
    ================================================= */
 
 /* ---------- VARIABLES ---------- */
@@ -18,7 +20,7 @@
 
   --text:#f4f5ff;
 
-  /* ✅ NEW: WhatsApp green theme */
+  /* WhatsApp */
   --whatsapp: #25D366;
   --whatsapp-glow: rgba(37,211,102,0.35);
 }
@@ -26,6 +28,10 @@
 /* ---------- RESET ---------- */
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
+html{ -webkit-text-size-adjust:100%; }
+body{ overflow-x:hidden; }
+
+a, button{ -webkit-tap-highlight-color: transparent; }
 
 body{
   margin:0;
@@ -40,7 +46,12 @@ body{
 
 /* ---------- BANNER ---------- */
 .banner{ width:100%; background:#000; }
-.banner img{ width:100%; display:block; }
+.banner img{
+  width:100%;
+  display:block;
+  max-height:420px;
+  object-fit:cover;
+}
 
 /* ---------- GRID ---------- */
 .container{
@@ -175,7 +186,7 @@ body{
   font-size:12px;
 }
 
-/* ✅ NEW: WhatsApp green button style (for I Have Paid / Continue to WhatsApp) */
+/* WhatsApp green button (I Have Paid / Continue to WhatsApp) */
 .btn.whatsapp-btn{
   background: linear-gradient(
     135deg,
@@ -249,7 +260,7 @@ body{
 }
 .payment-btn.qr{ cursor:pointer; }
 
-/* ✅ Optional: make WhatsApp payment button glow green */
+/* Optional: WhatsApp payment button green glow */
 .payment-btn.whatsapp{
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.12) inset,
@@ -426,4 +437,136 @@ footer{
     rgba(255,255,255,0.05)
   );
   backdrop-filter: blur(16px);
-  -we
+  -webkit-backdrop-filter: blur(16px);
+
+  border:1px solid rgba(255,255,255,0.32);
+}
+#priceList strong{ font-size:16px; }
+
+/* QR image */
+.qr-img{
+  width:100%;
+  max-width:320px;
+  display:block;
+  margin:10px auto 14px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.30);
+}
+
+/* =================================================
+   RESPONSIVE (MOBILE FRIENDLY)
+   ================================================= */
+
+/* Tablet */
+@media (min-width:721px) and (max-width:980px){
+  .container{ grid-template-columns:repeat(2,1fr); }
+  .review-box{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* Phone / small devices */
+@media (max-width:720px){
+  .banner img{ max-height:260px; }
+
+  .container{
+    width:min(1100px,94%);
+    margin-top:14px;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .app-card{
+    padding:14px;
+    border-radius:18px;
+  }
+
+  .app-card img{
+    width:64px;
+    height:64px;
+    border-radius:16px;
+  }
+
+  .app-card h2{
+    font-size:18px;
+    margin:10px 0 4px;
+  }
+
+  .app-card p{
+    font-size:12px;
+    margin-bottom:10px;
+  }
+
+  .btn{
+    padding:12px 12px;
+    border-radius:14px;
+    font-size:14px;
+  }
+
+  .btn.small{
+    padding:10px 12px;
+    font-size:12px;
+  }
+
+  .payment{ margin-top:26px; }
+  .payment-btn{
+    padding:16px;
+    border-radius:18px;
+  }
+
+  .review-box{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .review-card{
+    min-height:auto;
+    padding:14px;
+    border-radius:18px;
+  }
+
+  .reseller,.hours{
+    margin-top:26px;
+    padding:16px 14px;
+    border-radius:18px;
+  }
+
+  .floating-whatsapp,.floating-telegram{
+    right:14px;
+    width:52px;
+    height:52px;
+    border-radius:18px;
+    font-size:20px;
+  }
+  .floating-whatsapp{ bottom:86px; }
+  .floating-telegram{ bottom:20px; }
+}
+
+/* Extra small phones: modal scroll + package layout */
+@media (max-width:520px){
+  .modal{ padding:12px; }
+
+  .modal-box{
+    width:100%;
+    border-radius:18px;
+    padding:14px;
+    max-height:86vh;
+    overflow-y:auto;
+  }
+
+  #priceList li{
+    padding:10px;
+    border-radius:14px;
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  #priceList li span{ font-size:13px; }
+
+  #priceList .btn.small{
+    width:100%;
+    justify-content:center;
+  }
+
+  .qr-img{
+    max-width:280px;
+    border-radius:16px;
+  }
+}
